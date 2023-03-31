@@ -6,7 +6,7 @@
 #    By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/03/31 02:52:18 by tbouzalm         ###   ########.fr        #
+#    Updated: 2023/03/31 05:08:07 by tbouzalm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ utils/ft_substr.c \
 utils/puterr.c \
 srcs/game/draw.c \
 srcs/game/raycast.c \
+srcs/game/render_mini_map.c \
 # game/render_mini_map.c \
 # game/player_init.c \
 

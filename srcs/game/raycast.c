@@ -129,5 +129,6 @@ void    raycast(t_data *data)
             rc.perp_wall_dist = rc.side_dist[Y] - rc.delta_dist[Y];
         draw_wall(data, &rc, x);
     }
+    data = render_minimap(data);
     mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
 }
