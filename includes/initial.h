@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 20:21:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/31 03:57:12 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/03/31 04:16:08 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,6 @@ void    get_player_position(t_data *data);
 void    get_player_direction(t_data *data);
 void    game_init(t_data *data, t_game *game);
 void    img_pixel_put(t_data *data, int x, int y, int color);
-void    load_texture(t_data *data);
+void    load_texture(t_data *data, t_game *game);
 
 #endif // CUB3D_H
