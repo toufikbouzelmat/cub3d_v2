@@ -1,114 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/31 02:37:58 by tbouzalm          #+#    #+#             */
+/*   Updated: 2023/03/31 03:55:49 by tbouzalm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
-
-
-void    fill_map(t_data *data, t_game *game)
-{
-    int i = 0;
-    int j = 0;
-    data->map_data = (int **)malloc(sizeof(int *) * game->nbr_lines_contenu);
-    while(i < game->nbr_lines_contenu)
-    {
-        data->map_data[i] = (int *)malloc(sizeof(int) * game->nbr_colums);
-        while (j < game->nbr_colums)
-        {
-            if (game->contenu[i][j] >= '0' && game->contenu[i][j] <= '9')
-                data->map_data[i][j] = game->contenu[i][j] - '0';
-            else
-            {
-                data->map_data[i][j] = game->contenu[i][j];
-                data->view = game->contenu[i][j];
-            }
-            j++;
-        }
-        j = 0;
-        i++;
-    }
-}
-
-void check_fill_map(t_data *data, t_game *game)
-{
-    int i = 0;
-    int j = 0;
-
-    while(i < game->nbr_lines_contenu)
-    {
-        while (j < game->nbr_colums)
-        {
-            printf("%d\t",data->map_data[i][j]);
-            j++;
-        }
-        printf("\n");
-        j = 0;
-        i++;
-    }
-}
-
-void    get_player_position(t_data *data)
-{
-    int i;
-    int j;
-
-    i = 0;
-    while (i < data->MAP_WIDTH)
-    {
-        j = 0;
-        while (j < data->MAP_HEIGHT)
-        {
-            if (data->map_data[i][j] == 'N' || data->map_data[i][j] == 'W'
-                || data->map_data[i][j] == 'S' || data->map_data[i][j] == 'E')
-            {
-                data->pos[X] = i;
-                data->pos[Y] = j;
-                data->map_data[i][j] = '0';
-            }
-            j++;
-        }
-        i++;
-    }
-}
-
-void    get_player_direction(t_data *data)
-{
-    if(data->view == 'N')
-    {
-        data->dir[X] = -1;
-        data->dir[Y] = 0;
-        data->plane[X] = 0;
-        data->plane[Y] = 0.66;
-        data->rotSpeed *= -1;
-    }
-    else if (data->view == 'E')//
-    {
-        data->dir[X] = 0;
-        data->dir[Y] = -1;
-        data->plane[X] = 0.66;
-        data->plane[Y] = 0;
-    }
-    else if (data->view == 'S')
-    {
-        data->dir[X] = 1;
-        data->dir[Y] = 0;
-        data->plane[X] = 0;
-        data->plane[Y] = 0.66;
-    }
-    else if (data->view == 'W')
-    {
-        data->dir[X] = 0;
-        data->dir[Y] = 1;
-        data->plane[X] = -0.66;
-        data->plane[Y] = 0;
-    }
-}
-static void game_init(t_data *data, t_game *game)
-{
-    data->MAP_WIDTH = game->nbr_lines_contenu;
-    data->MAP_HEIGHT = game->nbr_colums;
-    data->rotSpeed = 0.08;
-    data->moveSpeed = 0.9;
-    fill_map(data, game);
-    get_player_position(data);
-    get_player_direction(data);
-}
 
 int	keypress(int keycode,t_data *data)
 {
@@ -170,11 +72,23 @@ int	keypress(int keycode,t_data *data)
 
 void    load_texture(t_data *data)
 {
-    char *xpm = "textures/wall.xpm";
-    data->texture = mlx_xpm_file_to_image(data->mlx_ptr, xpm, &data->tex_w, &data->tex_h);
-    if(data->texture == NULL)
+    char *xpm = "textures/bluestone.xpm";
+    data->texture_no = mlx_xpm_file_to_image(data->mlx_ptr, xpm, &data->tex_w_no, &data->tex_h_no);
+    if(data->texture_no == NULL)
         return;
-    data->img_color = (int *)mlx_get_data_addr(data->texture, &data->tex_bbp, &data->tex_size_line, &data->tex_endian);
+    data->img_color_no = (int *)mlx_get_data_addr(data->texture_no, &data->tex_bbp_no, &data->tex_size_line_no, &data->tex_endian_no);
+    data->texture_we = mlx_xpm_file_to_image(data->mlx_ptr, "textures/eagle.xpm", &data->tex_w_we, &data->tex_h_we);
+    if(data->texture_we == NULL)
+        return;
+    data->img_color_we = (int *)mlx_get_data_addr(data->texture_we, &data->tex_bbp_we, &data->tex_size_line_we, &data->tex_endian_we);
+    data->texture_so = mlx_xpm_file_to_image(data->mlx_ptr, "textures/greystone.xpm", &data->tex_w_so, &data->tex_h_so);
+    if(data->texture_so == NULL)
+        return;
+    data->img_color_so = (int *)mlx_get_data_addr(data->texture_so, &data->tex_bbp_so, &data->tex_size_line_so, &data->tex_endian_so);
+    data->texture_ea = mlx_xpm_file_to_image(data->mlx_ptr, "textures/purplestone.xpm", &data->tex_w_ea, &data->tex_h_ea);
+    if(data->texture_ea == NULL)
+        return;
+    data->img_color_ea = (int *)mlx_get_data_addr(data->texture_ea, &data->tex_bbp_ea, &data->tex_size_line_ea, &data->tex_endian_ea);
 }
 
 int main(int argc, char **argv)
@@ -191,10 +105,9 @@ int main(int argc, char **argv)
 	remplire_contenu(&game);
 	check_map_contenu(&game);
     game_init(&data, &game);
-    printf("n_text = %s\n",game.n_texture_xpm);// exemple where is path texture
     data.mlx_ptr = mlx_init();
     load_texture(&data);
-    data.win_ptr = mlx_new_window(data.mlx_ptr,  WIN_WIDTH,  WIN_HEIGHT,  "cub3d");
+    data.win_ptr = mlx_new_window(data.mlx_ptr,  WIN_WIDTH,  WIN_HEIGHT,  "cub3D");
     data.img_ptr = mlx_new_image(data.mlx_ptr,  WIN_WIDTH,  WIN_HEIGHT);
     data.data_addr = mlx_get_data_addr(data.img_ptr, 
             &data.bits_per_pixel,  &data.size_line,  &data.endian);

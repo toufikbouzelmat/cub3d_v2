@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 20:21:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/31 02:16:34 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/03/31 03:57:12 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <mlx.h>
 #include <stdlib.h>
 # include <stdio.h>
+# include "../cub3D.h"
 
 # define WIN_WIDTH  1280
 # define WIN_HEIGHT 720
@@ -66,6 +67,34 @@ typedef struct
     double texPos;
     double y;
     int color;
+    void    *texture_no; // 1
+    int     tex_w_no;
+    int     tex_h_no;
+    int    *img_color_no;
+    int     tex_size_line_no;
+    int     tex_endian_no;
+    int     tex_bbp_no;
+    void    *texture_we;//2
+    int     tex_w_we;
+    int     tex_h_we;
+    int    *img_color_we;
+    int     tex_size_line_we;
+    int     tex_endian_we;
+    int     tex_bbp_we;
+    void    *texture_so;//3
+    int     tex_w_so;
+    int     tex_h_so;
+    int    *img_color_so;
+    int     tex_size_line_so;
+    int     tex_endian_so;
+    int     tex_bbp_so;
+    void    *texture_ea;//4
+    int     tex_w_ea;
+    int     tex_h_ea;
+    int    *img_color_ea;
+    int     tex_size_line_ea;
+    int     tex_endian_ea;
+    int     tex_bbp_ea;
 }   t_data;
 
 typedef struct
@@ -84,6 +113,10 @@ typedef struct
 
 void    draw_vertical_line(t_data *data, t_raycast *rc, int x);
 void    raycast(t_data *data);
+void    fill_map(t_data *data, t_game *game);
+void    get_player_position(t_data *data);
+void    get_player_direction(t_data *data);
+void    game_init(t_data *data, t_game *game);
 void    img_pixel_put(t_data *data, int x, int y, int color);
 void    load_texture(t_data *data);
 

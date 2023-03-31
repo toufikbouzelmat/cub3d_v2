@@ -6,7 +6,7 @@
 #    By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/03/30 04:19:19 by tbouzalm         ###   ########.fr        #
+#    Updated: 2023/03/31 02:52:18 by tbouzalm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ HEADERS =  cub3D.h utils/utils.h parsing/parsing.h includes/initial.h
 
 SRCS = main.c \
 srcs/parsing/check_color.c \
+srcs/parsing/initialisation.c \
 srcs/parsing/check_contenu_map.c \
 srcs/parsing/intialise_struct.c \
 srcs/parsing/check_map.c \
@@ -52,7 +53,6 @@ utils/ft_strdup.c \
 utils/ft_strlcpy.c \
 utils/ft_strlen.c \
 utils/ft_strncmp.c \
-utils/my_mlx_pixel_put.c \
 utils/ft_substr.c \
 utils/puterr.c \
 srcs/game/draw.c \

@@ -61,6 +61,19 @@ static void perform_dda(t_data *data, t_raycast *rc)
     }
 }
 
+void	get_texture(t_data *data, t_raycast *rc)
+{
+	if (rc->side == 1 && rc->ray_dir[Y] > 0)
+        data->color = *(int *)(data->img_color_no + (data->texY * data->tex_w_no+ data->texX));
+	else if (rc->side == 1 && rc->ray_dir[Y] < 0)
+			data->color = *(int *)(data->img_color_so + (data->texY * data->tex_w_so + data->texX));
+	else if (rc->side == 0 && rc->ray_dir[X] > 0)
+			data->color = *(int *)(data->img_color_ea + (data->texY * data->tex_w_ea + data->texX));
+	else if (rc->side == 0 && rc->ray_dir[X] < 0)
+			data->color = *(int *)(data->img_color_we + (data->texY * data->tex_w_we + data->texX));
+    if (rc->side == 1)
+            data->color = (data->color >> 1) & 0x7F7F7F;
+}
 
 static void draw_wall(t_data *data, t_raycast *rc, int x)
 {
@@ -70,7 +83,7 @@ static void draw_wall(t_data *data, t_raycast *rc, int x)
         rc->draw_start = 0;
     rc->draw_end = rc->draw_start + rc->line_height;
     if (rc->draw_end > WIN_HEIGHT)
-        rc->draw_end = (rc->line_height / 2) + (WIN_HEIGHT / 2); // rc->draw_end = WIN_HEIGHT - 1;
+        rc->draw_end = (rc->line_height / 2) + (WIN_HEIGHT / 2);
     if (rc->draw_end >= WIN_HEIGHT)
         rc->draw_end = WIN_HEIGHT - 1;
     if(rc->side == 0)
@@ -78,22 +91,19 @@ static void draw_wall(t_data *data, t_raycast *rc, int x)
     else
         data->wallX = data->pos[X] + rc->perp_wall_dist * rc->ray_dir[X];
     data->wallX -= floor(data->wallX);
-    data->texX = (int)(data->wallX * (double)(data->tex_w));
+    data->texX = (int)(data->wallX * (double)(data->tex_w_no));
     if (rc->side == 0 && rc->ray_dir[X] > 0)
-        data->texX = data->tex_w - data->texX - 1;
+        data->texX = data->tex_w_no - data->texX - 1;
     if (rc->side == 1 && rc->ray_dir[Y] < 0)
-        data->texX = data->tex_w - data->texX - 1;
-    data->step = 1.0 * data->tex_h / rc->line_height;
+        data->texX = data->tex_w_no - data->texX - 1;
+    data->step = 1.0 * data->tex_h_no / rc->line_height;
     data->texPos = (rc->draw_start - WIN_HEIGHT / 2 + rc->line_height / 2) * data->step;
     data->y = rc->draw_start;
     while(data->y < rc->draw_end)
     {
-        // data->texY = (int)fmod(data->texPos, (data->tex_h - 1));
-        data->texY = (int)data->texPos & (data->tex_h - 1);
+        data->texY = (int)data->texPos & (data->tex_h_no - 1);
         data->texPos += data->step;
-        data->color = *(int *)(data->img_color + (data->texY * data->tex_w + data->texX));
-        if (rc->side == 1)
-            data->color = (data->color >> 1) & 0x7F7F7F;
+        get_texture(data, rc);
         img_pixel_put(data, x, data->y, data->color);
         data->y++;
     }

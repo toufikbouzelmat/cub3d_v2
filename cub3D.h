@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 20:32:31 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/29 20:36:38 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:50:55 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@
 
 t_game	initialize_struct(void);
 
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
-void	ft_window(t_mlx *mlx, t_game game);
 int	    render(t_game *game);
 
 int	    key_release(int keycode, t_game *game);

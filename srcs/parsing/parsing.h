@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 04:09:29 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/29 21:19:05 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/03/31 03:04:25 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,92 +40,14 @@ typedef struct s_celing
 	int		trgb;
 }t_ceiling;
 
-typedef struct s_mlx
-{
-	void	*mlx;
-	void	*win;
-	int		window_width;
-	int		window_heigth;
-}t_mlx;
-
-typedef struct s_ray
-{
-	double	begin_x;
-	double	begin_y;
-	double	end_x;
-	double	end_y;
-	double	h_intrsct_x;
-	double	h_intrsct_y;
-	double	v_intrsct_x;
-	double	v_intrsct_y;
-	double	v_dist;
-	double	h_dist;
-	int		nbr_rays;
-	double	angle_speed;
-	double	angle;
-}t_ray;
-
-typedef struct s_parse
-{
-	char	*line;
-	int		fd;
-	char	**map_str;
-}t_parse;
-
-typedef struct s_wall
-{
-	int		start;
-	int		end;
-	double	height;
-}t_wall;
-
-typedef struct s_player
-{
-	double	x;
-	double	y;
-	char	view;
-	double	field_of_view;
-	int		move_horizontaly;
-	int		move_verticaly;
-	int		rotate;
-	double	rotation_angle;
-	double	move_speed;
-	double	rotation_speed;
-	int		mouse;
-	int		mouse_rotate;
-	int		sign;
-}t_player;
-
-typedef struct s_img
-{
-	void	*img;
-	char	*addr;
-	int		*addr_int;
-	int		addr_int_size;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		size;
-}t_img;
-
 typedef struct s_game
 {
 	char		*n_texture_xpm;
 	char		*s_texture_xpm;
 	char		*w_texture_xpm;
 	char		*e_texture_xpm;
-	t_img		n_texture;
-	t_img		s_texture;
-	t_img		w_texture;
-	t_img		e_texture;
-	t_ray		ray;
 	t_color		floor;
 	t_ceiling	ceiling;
-	t_mlx		mlx;
-	t_player	player;
-	t_img		img;
-	t_wall		wall;
-	t_parse		parse;
 	int			nbr_colums;
 	int			nbr_lines;
 	int			nbr_lines_contenu;
