@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 20:12:51 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 07:22:21 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 08:31:42 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_strlen_const(const char *str)
 		i++;
 	return (i);
 }
+
 void	negative_atoi(const char *str)
 {
 	int	i;
