@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 20:21:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 05:34:06 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 06:52:21 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,10 @@ void	set_info_n(t_data *data);
 void	set_info_s(t_data *data);
 void	set_info_e(t_data *data);
 void	set_info_w(t_data *data);
+void	compute_delta_dist(t_data *data, t_raycast *rc);
+void	compute_side_dist(t_data *data, t_raycast *rc);
+void	perform_dda(t_data *data, t_raycast *rc);
+void	get_texture(t_data *data, t_raycast *rc);
+void	draw_wall(t_data *data, t_raycast *rc, int x);
 
 #endif

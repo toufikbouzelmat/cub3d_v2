@@ -6,12 +6,11 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 04:56:39 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 05:30:45 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 07:24:20 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
-// #include "../../includes/initial.h"
 
 t_data	*my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {

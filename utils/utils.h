@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 20:15:54 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/23 20:17:33 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 07:28:40 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		ft_search(char *s, int c);
 char	*ft_strdup(char *s1);
 int		ft_strlcpy(char *dst, char *src, int dstsize);
 int		ft_strlen(char *s);
+int		ft_strlen_const(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, int n);
 char	*ft_substr(char const *s, int start, int len);
 char	*ft_strjoin_gnl(char *s1, char *s2);

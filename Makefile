@@ -6,7 +6,7 @@
 #    By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/04/01 02:12:59 by tbouzalm         ###   ########.fr        #
+#    Updated: 2023/04/01 06:53:47 by tbouzalm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,9 +60,7 @@ srcs/game/draw.c \
 srcs/game/raycast.c \
 srcs/game/render_mini_map.c \
 srcs/game/load_texture.c \
-# game/render_mini_map.c \
-# game/player_init.c \
-
+srcs/game/compute.c \
 
 OBJS = $(SRCS:.c=.o)
 

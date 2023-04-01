@@ -6,16 +6,30 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 20:12:51 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/23 20:12:53 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 07:22:21 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
+int	ft_strlen_const(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 void	negative_atoi(const char *str)
 {
 	int	i;
 
+	if (ft_strlen_const(str) > 3)
+	{
+		printf("Error\ninvalid variable(max)\n");
+		exit(1);
+	}
 	i = 0;
 	while (str[i] != '\0')
 	{

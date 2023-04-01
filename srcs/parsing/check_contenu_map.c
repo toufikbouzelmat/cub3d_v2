@@ -6,12 +6,11 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 05:51:12 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/12 13:29:48 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 07:25:03 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "string.h"
 
 void	last_line_mur(t_game *map)
 {
@@ -23,7 +22,7 @@ void	last_line_mur(t_game *map)
 	while (map && map->contenu && map->contenu[last_line])
 		last_line++;
 	last_line--;
-	len = strlen(map->contenu[last_line]);
+	len = ft_strlen(map->contenu[last_line]);
 	i = 0;
 	while (i < len)
 	{
