@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 20:32:31 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 02:03:09 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 04:41:54 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,5 @@
 # define WALL_STRIP_WIDTH 1
 
 t_game	initialize_struct(void);
-
-void    load_texture_n(t_data *data,t_game *game);
-void    load_texture_s(t_data *data,t_game *game);
-void    load_texture_w(t_data *data,t_game *game);
-void    load_texture_e(t_data *data,t_game *game);
-void    load_texture(t_data *data, t_game *game);
-
-
-
 
 #endif

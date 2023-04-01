@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 01:45:31 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 01:50:44 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 05:32:55 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	set_info_n(t_data *data)
 	data->dir[Y] = 0;
 	data->plane[X] = 0;
 	data->plane[Y] = 0.66;
-	data->rotSpeed *= -1;
+	data->rot_speed *= -1;
 }
 
 void	set_info_s(t_data *data)

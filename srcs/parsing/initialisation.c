@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:42:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 01:45:48 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 05:32:55 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	get_player_position(t_data *data)
 	int	j;
 
 	i = 0;
-	while (i < data->MAP_WIDTH)
+	while (i < data->map_height)
 	{
 		j = 0;
-		while (j < data->MAP_HEIGHT)
+		while (j < data->map_width)
 		{
 			if (data->map_data[i][j] == 'N' || data->map_data[i][j] == 'W'
 				|| data->map_data[i][j] == 'S' || data->map_data[i][j] == 'E')
@@ -76,10 +76,10 @@ void	get_player_direction(t_data *data)
 
 void	game_init(t_data *data, t_game *game)
 {
-	data->MAP_WIDTH = game->nbr_lines_contenu;
-	data->MAP_HEIGHT = game->nbr_colums;
-	data->rotSpeed = 0.08;
-	data->moveSpeed = 0.9;
+	data->map_height = game->nbr_lines_contenu;
+	data->map_width = game->nbr_colums;
+	data->rot_speed = 0.08;
+	data->move_speed = 0.9;
 	fill_map(data, game);
 	get_player_position(data);
 	get_player_direction(data);

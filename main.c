@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:37:58 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 02:01:34 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 05:32:55 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,49 +21,49 @@ int	keypress(int keycode,t_data *data)
 		exit(0);
 	if (keycode == 13)
 	{
-        if(!(data->map_data[(int)(data->pos[X] + data->dir[X] * data->moveSpeed)][(int)data->pos[Y]]))
-            data->pos[X] += data->dir[X] * data->moveSpeed;
-        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] + data->dir[Y] * data->moveSpeed)]))
-            data->pos[Y] += data->dir[Y] * data->moveSpeed;
+        if(!(data->map_data[(int)(data->pos[X] + data->dir[X] * data->move_speed)][(int)data->pos[Y]]))
+            data->pos[X] += data->dir[X] * data->move_speed;
+        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] + data->dir[Y] * data->move_speed)]))
+            data->pos[Y] += data->dir[Y] * data->move_speed;
     }
 	if (keycode == 1)
 	{
-        if(!(data->map_data[(int)(data->pos[X] - data->dir[X] * data->moveSpeed)][(int)data->pos[Y]]))
-            data->pos[X] -= data->dir[X] * data->moveSpeed;
-        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] - data->dir[Y] * data->moveSpeed)]))
-            data->pos[Y] -= data->dir[Y] * data->moveSpeed;
+        if(!(data->map_data[(int)(data->pos[X] - data->dir[X] * data->move_speed)][(int)data->pos[Y]]))
+            data->pos[X] -= data->dir[X] * data->move_speed;
+        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] - data->dir[Y] * data->move_speed)]))
+            data->pos[Y] -= data->dir[Y] * data->move_speed;
     }
     if (keycode == 2)
     {
-        if(!(data->map_data[(int)(data->pos[X] + data->plane[X] * data->moveSpeed)][(int)data->pos[Y]]))
-            data->pos[X] += data->plane[X] * data->moveSpeed;
-        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] + data->plane[Y] * data->moveSpeed)]))
-            data->pos[Y] += data->plane[Y] * data->moveSpeed;
+        if(!(data->map_data[(int)(data->pos[X] + data->plane[X] * data->move_speed)][(int)data->pos[Y]]))
+            data->pos[X] += data->plane[X] * data->move_speed;
+        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] + data->plane[Y] * data->move_speed)]))
+            data->pos[Y] += data->plane[Y] * data->move_speed;
     }
     if (keycode == 0)
     {
-        if(!(data->map_data[(int)(data->pos[X] - data->plane[X] * data->moveSpeed)][(int)data->pos[Y]]))
-            data->pos[X] -= data->plane[X] * data->moveSpeed;
-        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] - data->plane[Y] * data->moveSpeed)]))
-            data->pos[Y] -= data->plane[Y] * data->moveSpeed;
+        if(!(data->map_data[(int)(data->pos[X] - data->plane[X] * data->move_speed)][(int)data->pos[Y]]))
+            data->pos[X] -= data->plane[X] * data->move_speed;
+        if(!(data->map_data[(int)data->pos[X]][(int)(data->pos[Y] - data->plane[Y] * data->move_speed)]))
+            data->pos[Y] -= data->plane[Y] * data->move_speed;
     }
     if(keycode == 123)
     {
         oldDir = data->dir[X];
-        data->dir[X] = data->dir[X] * cos(-(data->rotSpeed)) - data->dir[Y] * sin(-(data->rotSpeed));
-        data->dir[Y] = oldDir * sin(-(data->rotSpeed)) + data->dir[Y] * cos(-(data->rotSpeed));
+        data->dir[X] = data->dir[X] * cos(-(data->rot_speed)) - data->dir[Y] * sin(-(data->rot_speed));
+        data->dir[Y] = oldDir * sin(-(data->rot_speed)) + data->dir[Y] * cos(-(data->rot_speed));
         oldPlan = data->plane[X];
-        data->plane[X] = data->plane[X] * cos(-(data->rotSpeed)) - data->plane[Y] * sin(-(data->rotSpeed));
-        data->plane[Y] = oldPlan * sin(-(data->rotSpeed)) + data->plane[Y] * cos(-(data->rotSpeed));
+        data->plane[X] = data->plane[X] * cos(-(data->rot_speed)) - data->plane[Y] * sin(-(data->rot_speed));
+        data->plane[Y] = oldPlan * sin(-(data->rot_speed)) + data->plane[Y] * cos(-(data->rot_speed));
     }
     if(keycode == 124)
     {
         oldDir = data->dir[X];
-        data->dir[X] = data->dir[X] * cos(data->rotSpeed) - data->dir[Y] * sin(data->rotSpeed);
-        data->dir[Y] = oldDir * sin(data->rotSpeed) + data->dir[Y] * cos(data->rotSpeed);
+        data->dir[X] = data->dir[X] * cos(data->rot_speed) - data->dir[Y] * sin(data->rot_speed);
+        data->dir[Y] = oldDir * sin(data->rot_speed) + data->dir[Y] * cos(data->rot_speed);
         oldPlan = data->plane[X];
-        data->plane[X] = data->plane[X] * cos(data->rotSpeed) - data->plane[Y] * sin(data->rotSpeed);
-        data->plane[Y] = oldPlan * sin(data->rotSpeed) + data->plane[Y] * cos(data->rotSpeed);
+        data->plane[X] = data->plane[X] * cos(data->rot_speed) - data->plane[Y] * sin(data->rot_speed);
+        data->plane[Y] = oldPlan * sin(data->rot_speed) + data->plane[Y] * cos(data->rot_speed);
     }
     mlx_clear_window(data->mlx_ptr, data->win_ptr);
     raycast(data);

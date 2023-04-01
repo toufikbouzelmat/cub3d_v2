@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 04:56:39 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 00:56:56 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 05:30:45 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_data	*render_minimap_background(t_data *data, int x, int y)
 		while (j < x + 5)
 		{
 			if (i < 0 || j < 0
-				|| i >= data->MAP_WIDTH || j >= data->MAP_HEIGHT)
+				|| i >= data->map_height || j >= data->map_width)
 				data = draw_square(data, i - y + 5, j - x + 5, 0x808080);
 			else if (data->game.contenu[i][j] == '0')
 				data = draw_square(data, i - y + 5, j - x + 5, 0x000000);
