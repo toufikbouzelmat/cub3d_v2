@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:42:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/31 03:01:10 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:45:48 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,34 +65,13 @@ void	get_player_position(t_data *data)
 void	get_player_direction(t_data *data)
 {
 	if (data->view == 'N')
-	{
-		data->dir[X] = -1;
-		data->dir[Y] = 0;
-		data->plane[X] = 0;
-		data->plane[Y] = 0.66;
-		data->rotSpeed *= -1;
-	}
+		set_info_n(data);
 	else if (data->view == 'E')
-	{
-		data->dir[X] = 0;
-		data->dir[Y] = -1;
-		data->plane[X] = 0.66;
-		data->plane[Y] = 0;
-	}
+		set_info_e(data);
 	else if (data->view == 'S')
-	{
-		data->dir[X] = 1;
-		data->dir[Y] = 0;
-		data->plane[X] = 0;
-		data->plane[Y] = 0.66;
-	}
+		set_info_s(data);
 	else if (data->view == 'W')
-	{
-		data->dir[X] = 0;
-		data->dir[Y] = 1;
-		data->plane[X] = -0.66;
-		data->plane[Y] = 0;
-	}
+		set_info_w(data);
 }
 
 void	game_init(t_data *data, t_game *game)

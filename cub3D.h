@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 20:32:31 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/31 21:30:18 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:03:09 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@
 
 t_game	initialize_struct(void);
 
-
-// int	    key_release(int keycode, t_game *game);
+void    load_texture_n(t_data *data,t_game *game);
+void    load_texture_s(t_data *data,t_game *game);
+void    load_texture_w(t_data *data,t_game *game);
+void    load_texture_e(t_data *data,t_game *game);
+void    load_texture(t_data *data, t_game *game);
 
 
 

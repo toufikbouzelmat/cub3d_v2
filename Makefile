@@ -6,7 +6,7 @@
 #    By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/03/31 05:08:07 by tbouzalm         ###   ########.fr        #
+#    Updated: 2023/04/01 02:12:59 by tbouzalm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ srcs/parsing/check_map.c \
 srcs/parsing/check_n_and_zero.c \
 srcs/parsing/get_next_line.c \
 srcs/parsing/get_next_line_utils.c \
+srcs/parsing/set_info.c \
 srcs/parsing/map_contenu.c \
 srcs/parsing/msg_err.c \
 srcs/parsing/msg_err2.c \
@@ -58,6 +59,7 @@ utils/puterr.c \
 srcs/game/draw.c \
 srcs/game/raycast.c \
 srcs/game/render_mini_map.c \
+srcs/game/load_texture.c \
 # game/render_mini_map.c \
 # game/player_init.c \
 

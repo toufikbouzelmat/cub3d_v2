@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 20:21:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 00:25:24 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 01:46:39 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,9 @@ t_data	*render_minimap_background(t_data *data, int x, int y);
 t_data	*draw_square(t_data *data, double i, double j, int color);
 int	    keypress(int keycode,t_data *data);
 int	    ft_exit(t_game *game);
+void	set_info_n(t_data *data);
+void	set_info_s(t_data *data);
+void	set_info_e(t_data *data);
+void	set_info_w(t_data *data);
 
 #endif // CUB3D_H
