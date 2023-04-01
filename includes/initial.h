@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 20:21:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/31 04:16:08 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 00:25:24 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct
     int     tex_size_line_ea;
     int     tex_endian_ea;
     int     tex_bbp_ea;
+    t_game  game;
 }   t_data;
 
 typedef struct
@@ -119,5 +120,10 @@ void    get_player_direction(t_data *data);
 void    game_init(t_data *data, t_game *game);
 void    img_pixel_put(t_data *data, int x, int y, int color);
 void    load_texture(t_data *data, t_game *game);
+t_data	*render_minimap(t_data *data);
+t_data	*render_minimap_background(t_data *data, int x, int y);
+t_data	*draw_square(t_data *data, double i, double j, int color);
+int	    keypress(int keycode,t_data *data);
+int	    ft_exit(t_game *game);
 
 #endif // CUB3D_H
