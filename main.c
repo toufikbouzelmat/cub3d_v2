@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:37:58 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 00:32:29 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/01 00:59:37 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,11 +127,6 @@ int main(int argc, char **argv)
     data.data_addr = mlx_get_data_addr(data.img_ptr, 
             &data.bits_per_pixel,  &data.size_line,  &data.endian);
     data.game = game;
-    for (size_t i = 0; data.game.contenu[i]; i++)
-    {
-        printf("%s\n", data.game.contenu[i]);
-    }
-    
     raycast(&data);
 	mlx_hook(data.win_ptr, 2, 0, keypress, (void *)&data);
     // mlx_loop_hook(data.mlx_ptr, render, &data);
