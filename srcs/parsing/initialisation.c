@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:42:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 06:15:38 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 09:51:00 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	fill_map(t_data *data, t_game *game)
 	}
 }
 
-void	get_player_position(t_data *data)
+void	get_player_position(t_data *data, t_game *game)
 {
 	int	i;
 	int	j;
@@ -52,7 +52,8 @@ void	get_player_position(t_data *data)
 			if (data->map_data[i][j] == 'N' || data->map_data[i][j] == 'W'
 				|| data->map_data[i][j] == 'S' || data->map_data[i][j] == 'E')
 			{
-				data->map_data[i][j] = '0';
+				game->contenu[i][j] = '0';
+				data->map_data[i][j] = 0;
 				data->pos[X] = i;
 				data->pos[Y] = j;
 			}
@@ -81,6 +82,6 @@ void	game_init(t_data *data, t_game *game)
 	data->rot_speed = 0.08;
 	data->move_speed = 0.9;
 	fill_map(data, game);
-	get_player_position(data);
+	get_player_position(data, game);
 	get_player_direction(data);
 }

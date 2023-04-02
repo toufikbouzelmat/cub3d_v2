@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 06:37:29 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/01 06:56:14 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 09:38:45 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	get_texture(t_data *data, t_raycast *rc)
 		data->color = (data->color >> 1) & 0x7F7F7F;
 }
 
-void	draw_wall(t_data *data, t_raycast *rc, int x)
-{
+void	calculation(t_data *data, t_raycast *rc)
+{	
 	rc->line_height = (int)(WIN_HEIGHT / rc->perp_wall_dist);
 	rc->draw_start = (-rc->line_height / 2) + (WIN_HEIGHT / 2);
 	if (rc->draw_start < 0)
@@ -71,6 +71,11 @@ void	draw_wall(t_data *data, t_raycast *rc, int x)
 	else
 		data->wall_x = data->pos[X] + rc->perp_wall_dist * rc->ray_dir[X];
 	data->wall_x -= floor(data->wall_x);
+}
+
+void	draw_wall(t_data *data, t_raycast *rc, int x)
+{
+	calculation(data, rc);
 	data->tex_x = (int)(data->wall_x * (double)(data->tex_w_no));
 	if (rc->side == 0 && rc->ray_dir[X] > 0)
 		data->tex_x = data->tex_w_no - data->tex_x - 1;

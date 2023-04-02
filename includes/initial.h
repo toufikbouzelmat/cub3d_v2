@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 20:21:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 05:31:12 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 09:51:20 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_data
 	int		tex_size_line_ea;
 	int		tex_endian_ea;
 	int		tex_bbp_ea;
+	int		old_mouse;
 	t_game	game;
 }	t_data;
 
@@ -108,7 +109,7 @@ typedef struct s_raycast
 void	draw_vertical_line(t_data *data, t_raycast *rc, int x);
 void	raycast(t_data *data);
 void	fill_map(t_data *data, t_game *game);
-void	get_player_position(t_data *data);
+void	get_player_position(t_data *data, t_game *game);
 void	get_player_direction(t_data *data);
 void	game_init(t_data *data, t_game *game);
 void	img_pixel_put(t_data *data, int x, int y, int color);
@@ -116,6 +117,7 @@ t_data	*render_minimap(t_data *data);
 t_data	*render_minimap_background(t_data *data, int x, int y);
 t_data	*draw_square(t_data *data, double i, double j, int color);
 int		keypress(int keycode, t_data *data);
+int		mouse_move(int x, int y, t_data *data);
 void	load_texture_n(t_data *data, t_game *game);
 void	load_texture_s(t_data *data, t_game *game);
 void	load_texture_w(t_data *data, t_game *game);

@@ -6,7 +6,7 @@
 #    By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/04/02 03:05:09 by tbouzalm         ###   ########.fr        #
+#    Updated: 2023/04/02 09:39:37 by tbouzalm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS =  -Wextra -Wall -Werror -fsanitize=address
 HEADERS =  cub3D.h utils/utils.h parsing/parsing.h includes/initial.h
 
 SRCS = main.c \
+mouvement.c \
 srcs/parsing/check_color.c \
 srcs/parsing/initialisation.c \
 srcs/parsing/check_contenu_map.c \
@@ -61,6 +62,7 @@ srcs/game/raycast.c \
 srcs/game/render_mini_map.c \
 srcs/game/load_texture.c \
 srcs/game/compute.c \
+
 
 OBJS = $(SRCS:.c=.o)
 
