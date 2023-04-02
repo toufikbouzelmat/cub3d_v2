@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 20:32:26 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 02:58:26 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 06:15:05 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,13 @@ void	draw_vertical_line(t_data *data, t_raycast *rc, int x)
 
 	y = -1;
 	while (++y < rc->draw_start)
-		img_pixel_put(data, x, y, SKY);
+		img_pixel_put(data, x, y, create_trgb(0, \
+		data->game.ceiling.red, data->game.ceiling.green, \
+		data->game.ceiling.blue));
 	while (y < rc->draw_end)
 		y++;
 	while (++y < WIN_HEIGHT)
-		img_pixel_put(data, x, y, GRASS);
+		img_pixel_put(data, x, y, create_trgb(0, \
+		data->game.floor.red, data->game.floor.green, \
+		data->game.floor.blue));
 }
