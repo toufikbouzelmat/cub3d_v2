@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 01:09:16 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/29 21:20:23 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 04:14:01 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,65 @@ int	ft_read_map(t_game *map, char *av)
 	return (map->nbr_lines);
 }
 
+// char *skip_spaces(char* string) {
+//     int index = 0;
+    
+// 	while (string[index] == ' ') {
+//         index++;
+//     }
+//     return string + index;
+// }
+
+int	or_other(int i, int j, t_game *map)
+{
+	// int	caractere;
+	
+	// caractere = 0;
+	// printf("after = [%s]\n",map->map[i]);
+	// printf("after = [%c]\n",map->map[i][0]);
+	// j = 0;
+	// while (map->map[i][j] != '\0')
+	// {
+	// 	if (is_lower(map->map[i][j]) == 1 || is_upper(map->map[i][j]) == 1 )
+	// 		caractere += 1;
+	// 	if (caractere >= 2)
+	// 	{
+	// 		printf("Error\nNo String here!!");
+	// 		exit(1);
+	// 	}
+	// }
+	if (map->map[i][j] == '\n')
+		return (0);
+	int index = 0;
+	while (map->map[i][index] == ' ')
+	{
+		index++;
+		if (map->map[i][index] == '\0')
+		{
+			return (0);
+		}	
+	}
+	// printf("la = [%c]\n",map->map[i][j + index]);
+	// while (map->map[i][j + index] != '\0')
+	// {
+		if (map->map[i][j + index] == 'F' || map->map[i][j + index] == 'C')
+		{
+			if (map->map[i][j + index + 1] == 32)
+				return 0;
+			else
+				return (1);  
+			// printf("i = %d, j = %d\n",i,j);
+			// printf("heree = %c\n",map->map[i][j]);
+			// printf("[%s]\n",map->map[i]);
+		}
+		
+		// if (map->map[i][index] == ' ')
+		// 	j++;
+	// 	j += 2;
+	// }
+	return (1);
+}
+
 int	ft_check_texture_now(t_game *map)
 {
 	int	i;
@@ -70,18 +129,24 @@ int	ft_check_texture_now(t_game *map)
 	while (map->map[++i])
 	{
 		j = 0;
+		if (i == map->last_line_before_m)
+			break ;
 		while ((map->map[i][j] != '\0') && (map->map[i][j] != '\t'))
 		{
-			if (map->map[i][j] == 32)
-				j++;
 			if (texture_no(i, j, map) == 1)
 				break ;
-			if (texture_so(i, j, map) == 1)
+			else if (texture_so(i, j, map) == 1)
 				break ;
-			if (texture_wo(i, j, map) == 1)
+			else if (texture_wo(i, j, map) == 1)
 				break ;
-			if (texture_ea(i, j, map) == 1)
+			else if (texture_ea(i, j, map) == 1)
 				break ;
+			else
+			{
+				if (or_other(i, j, map) == 1)
+					puterr("string or caractere");
+				break;	
+			}
 			j++;
 		}
 	}
@@ -90,8 +155,11 @@ int	ft_check_texture_now(t_game *map)
 	return (0);
 }
 
+
+
 int	ft_check_texture(t_game *map)
 {
+	map->last_line_before_m = get_map(map);
 	if (ft_check_line_c(map) == 1 || ft_check_line_f(map) == 1)
 		msg_err_color();
 	if (ft_check_texture_now(map) == 1)

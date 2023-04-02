@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 05:14:38 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/29 21:09:17 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 04:14:34 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,14 @@ int	ft_check_line_f(t_game *map)
 		j = 0;
 		while (map->map[i][j] != '\0')
 		{
-			if (map->map[i][j] == 32)
+			if (map->map[i][j] == 32 && map->map[i][j] != '\0')
 				j++;
 			if (map->map[i][j] == '\t')
 				msg_err_tab();
 			if (map->map[i][j] == 'F' && map->map[i][j + 1] == 32)
 				norm_check_line_f(i, j, map);
-			j++;
+			if (map->map[i][j] != '\0')
+				j++;
 		}
 		i++;
 	}
@@ -123,13 +124,14 @@ int	ft_check_line_c(t_game *map)
 		j = 0;
 		while (map->map[i][j] != '\0')
 		{
-			if (map->map[i][j] == 32)
+			if (map->map[i][j] == 32 && map->map[i][j] != '\0')
 				j++;
 			if (map->map[i][j] == '\t')
 				msg_err_tab();
 			if (map->map[i][j] == 'C' && map->map[i][j + 1] == 32)
 				norm_check_line_c(i, j, map);
-			j++;
+			if (map->map[i][j] != '\0')
+				j++;
 		}
 		i++;
 	}

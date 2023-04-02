@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 04:09:29 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/03/31 03:04:25 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 01:26:05 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_game
 	char		*s_texture_xpm;
 	char		*w_texture_xpm;
 	char		*e_texture_xpm;
+	int			last_line_before_m;
 	t_color		floor;
 	t_ceiling	ceiling;
 	int			nbr_colums;
@@ -105,6 +106,8 @@ void		verife_map_avant_allocer(t_game *map);
 int			ft_player_or_mur(char c, t_game	*map);
 void		norm_function_remplir_contenu(int id, int i, t_game *map, int j);
 int			remplire_contenu(t_game *map);
+int			is_upper(char c);
+int			is_lower(char c);
 
 void		last_line_mur(t_game *map);
 void		first_and_last_of_line(t_game *map);
