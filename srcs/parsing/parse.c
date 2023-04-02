@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 04:43:26 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 03:30:10 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 05:19:49 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,15 @@ int	check_extension(char *str)
 		write(1, "erreur extension\n", 18);
 		exit(1);
 	}
+	return (0);
+}
+
+int	ft_check_texture(t_game *map)
+{
+	map->last_line_before_m = get_map(map);
+	if (ft_check_line_c(map) == 1 || ft_check_line_f(map) == 1)
+		msg_err_color();
+	if (ft_check_texture_now(map) == 1)
+		msg_err_texture();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 04:09:29 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 01:26:05 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 05:19:05 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,7 @@ int			texture_no(int i, int j, t_game *map);
 int			texture_so(int i, int j, t_game *map);
 int			texture_wo(int i, int j, t_game *map);
 int			texture_ea(int i, int j, t_game *map);
+int			or_other(int i, int j, t_game *map);
+void		be_continued(int i, int j, t_game *map);
 
 #endif
