@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.c                                          :+:      :+:    :+:   */
+/*   raycast_bns.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 06:37:29 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/03 11:46:10 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:19:09 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ void	raycast(t_data *data)
 			rc.perp_wall_dist = rc.side_dist[Y] - rc.delta_dist[Y];
 		draw_wall(data, &rc, x);
 	}
+	data = render_minimap(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
 }

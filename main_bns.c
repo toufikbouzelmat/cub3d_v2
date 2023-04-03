@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bns.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:37:58 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/03 11:46:20 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:19:23 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 	data.game = game;
 	raycast(&data);
 	mlx_hook(data.win_ptr, 2, 0, keypress, &data);
+	mlx_hook(data.win_ptr, 6, 0, mouse_move, &data);
 	mlx_hook(data.win_ptr, 17, 0, ft_close, (void *)&data);
 	mlx_loop(data.mlx_ptr);
 }
