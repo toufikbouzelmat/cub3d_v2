@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yelousse <yelousse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:37:58 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 09:39:29 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/03 03:36:51 by yelousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
+
+int	ft_close(void *param)
+{
+	(void)param;
+	exit(0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -34,7 +40,8 @@ int	main(int argc, char **argv)
 			&data.bits_per_pixel, &data.size_line, &data.endian);
 	data.game = game;
 	raycast(&data);
-	mlx_hook(data.win_ptr, 2, 0, keypress, (void *)&data);
+	mlx_hook(data.win_ptr, 2, 0, keypress, &data);
 	mlx_hook(data.win_ptr, 6, 0, mouse_move, &data);
+	mlx_hook(data.win_ptr, 17, 0, ft_close, (void *)&data);
 	mlx_loop(data.mlx_ptr);
 }
