@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 01:09:16 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 11:16:03 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:04:33 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,23 +72,24 @@ int	or_other(int i, int j, t_game *map)
 	{
 		index++;
 		if (map->map[i][index] == '\0')
-		{
 			return (0);
-		}	
 	}
-	if (map->map[i][j + index] == 'F' || map->map[i][j + index] == 'C')
+	if (map->map[i][j + index] == 'F' && map->map[i][j + index + 1] == 32)
 	{
-		if (map->map[i][j + index + 1] == 32)
-			return (0);
-		else
-			return (1);
+		norm_check_line_f(i, index, map);
+		return (0);
+	}
+	if (map->map[i][j + index] == 'C' && map->map[i][j + index + 1] == 32)
+	{
+		norm_check_line_c(i, index, map);
+		return (0);
 	}
 	return (1);
 }
 
 void	be_continued(int i, int j, t_game *map)
 {
-	while ((map->map[i][j] != '\0') && (map->map[i][j] != '\t'))
+	while ((map->map[i][j] != '\0'))
 	{
 		if (texture_no(i, j, map) == 1)
 			break ;

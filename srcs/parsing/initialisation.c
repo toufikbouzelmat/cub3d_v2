@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:42:06 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 09:51:00 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/03 01:24:14 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	get_player_position(t_data *data, t_game *game)
 				|| data->map_data[i][j] == 'S' || data->map_data[i][j] == 'E')
 			{
 				game->contenu[i][j] = '0';
+				data->pos[X] = i + 0.5;
+				data->pos[Y] = j + 0.5;
 				data->map_data[i][j] = 0;
-				data->pos[X] = i;
-				data->pos[Y] = j;
 			}
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 05:14:38 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 04:14:34 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 12:30:29 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,33 +57,6 @@ void	ft_check_val_f(char *str, t_game *map)
 		msg_err_val_color();
 }
 
-int	ft_check_line_f(t_game *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map->map[i])
-	{
-		j = 0;
-		while (map->map[i][j] != '\0')
-		{
-			if (map->map[i][j] == 32 && map->map[i][j] != '\0')
-				j++;
-			if (map->map[i][j] == '\t')
-				msg_err_tab();
-			if (map->map[i][j] == 'F' && map->map[i][j + 1] == 32)
-				norm_check_line_f(i, j, map);
-			if (map->map[i][j] != '\0')
-				j++;
-		}
-		i++;
-	}
-	if (map->floor.count_color_f != 1)
-		return (1);
-	return (0);
-}
-
 void	ft_check_val_c(char *str, t_game *map)
 {
 	int		i;
@@ -111,31 +84,4 @@ void	ft_check_val_c(char *str, t_game *map)
 	!(map->ceiling.green <= 256 && map->ceiling.green >= 0) \
 	|| !(map->ceiling.blue <= 256 && map->ceiling.blue >= 0))
 		msg_err_val_color();
-}
-
-int	ft_check_line_c(t_game *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map->map[i])
-	{
-		j = 0;
-		while (map->map[i][j] != '\0')
-		{
-			if (map->map[i][j] == 32 && map->map[i][j] != '\0')
-				j++;
-			if (map->map[i][j] == '\t')
-				msg_err_tab();
-			if (map->map[i][j] == 'C' && map->map[i][j + 1] == 32)
-				norm_check_line_c(i, j, map);
-			if (map->map[i][j] != '\0')
-				j++;
-		}
-		i++;
-	}
-	if (map->ceiling.count_color_c != 1)
-		return (1);
-	return (0);
 }

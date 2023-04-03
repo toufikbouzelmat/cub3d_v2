@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 04:43:26 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 09:14:47 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/02 12:26:06 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_check_texture(t_game *map)
 	}	
 	if (ft_check_texture_now(map) == 1)
 		msg_err_texture();
-	if (ft_check_line_c(map) == 1 || ft_check_line_f(map) == 1)
+	if (map->ceiling.count_color_c != 1 || map->floor.count_color_f != 1)
 		msg_err_color();
 	return (0);
 }
