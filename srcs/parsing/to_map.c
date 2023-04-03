@@ -6,11 +6,18 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 06:20:46 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/03 00:41:41 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/03 09:10:32 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+
+int	is_digit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 int	is_upper(char c)
 {

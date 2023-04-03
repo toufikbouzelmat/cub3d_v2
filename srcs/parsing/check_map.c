@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 01:09:16 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 13:04:33 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:01:01 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,8 @@ int	or_other(int i, int j, t_game *map)
 		if (map->map[i][index] == '\0')
 			return (0);
 	}
-	if (map->map[i][j + index] == 'F' && map->map[i][j + index + 1] == 32)
-	{
-		norm_check_line_f(i, index, map);
+	if (check_if_is_floor_or_celing(map, i, j, index) == 0)
 		return (0);
-	}
-	if (map->map[i][j + index] == 'C' && map->map[i][j + index + 1] == 32)
-	{
-		norm_check_line_c(i, index, map);
-		return (0);
-	}
 	return (1);
 }
 

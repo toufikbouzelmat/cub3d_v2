@@ -6,14 +6,14 @@
 #    By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/04/02 09:39:37 by tbouzalm         ###   ########.fr        #
+#    Updated: 2023/04/03 05:53:42 by tbouzalm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = cub3D
 
-CFLAGS =  -Wextra -Wall -Werror -fsanitize=address
+CFLAGS =  -Wextra -Wall -Werror 
 
 HEADERS =  cub3D.h utils/utils.h parsing/parsing.h includes/initial.h
 

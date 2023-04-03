@@ -6,11 +6,42 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 05:14:38 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/02 12:30:29 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:01:12 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+
+int	check_if_is_floor_or_celing(t_game *map, int i, int j, int index)
+{
+	if (map->map[i][j + index] == 'F' && map->map[i][j + index + 1] == 32)
+	{
+		if (map->count_f == 1)
+			puterr("Duplicate color F");
+		norm_check_line_f(i, index, map);
+		map->count_f++;
+		return (0);
+	}
+	if (map->map[i][j + index] == 'C' && map->map[i][j + index + 1] == 32)
+	{
+		if (map->count_c == 1)
+			puterr("Duplicate color C");
+		norm_check_line_c(i, index, map);
+		map->count_c++;
+		return (0);
+	}
+	return (1);
+}
+
+void	check_path_existe(char *path)
+{
+	int	fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		msg_err_file();
+	close(fd);
+}
 
 int	ft_check_virgule(char *str)
 {	

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yelousse <yelousse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 02:37:58 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/03 03:36:51 by yelousse         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:00:42 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,17 @@ int	ft_close(void *param)
 	exit(0);
 }
 
+void	test(void)
+{
+	system("leaks cub3D");
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
 	t_game	game;
 
+	atexit(test);
 	if (argc != 2)
 		puterr("enter the valid arguments!!\n");
 	game = initialize_struct();
