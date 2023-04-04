@@ -6,7 +6,7 @@
 #    By: yelousse <yelousse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/04/04 22:32:09 by yelousse         ###   ########.fr        #
+#    Updated: 2023/04/04 23:19:03 by yelousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,4 +140,4 @@ fclean: clean
 	
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
