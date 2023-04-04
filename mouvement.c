@@ -6,7 +6,7 @@
 /*   By: yelousse <yelousse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:10:55 by yelousse          #+#    #+#             */
-/*   Updated: 2023/04/03 03:34:09 by yelousse         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:27:15 by yelousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,5 @@ int	keypress(int keycode, t_data *data)
 		rotation(data, 1);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	raycast(data);
-	return (0);
-}
-
-int	mouse_move(int x, int y, t_data *data)
-{
-	if (x >= WIN_WIDTH || x <= 0 || y >= WIN_HEIGHT || y <= 0)
-		return (0);
-	if (x > data->old_mouse)
-		keypress(124, data);
-	else if (x < data->old_mouse)
-		keypress(123, data);
-	if (x == WIN_WIDTH || x == 0)
-		x = WIN_WIDTH / 2;
-	data->old_mouse = x;
 	return (0);
 }

@@ -4,7 +4,7 @@
         NO    ./textures/bluestone.xpm
 
         SO             ./textures/greystone.xpm
-        WE   ./textures/text1.xpm
+        WE   ./textures/eagle.xpm
 
         EA    ./textures/redbrick.xpm
         C 150,46,125

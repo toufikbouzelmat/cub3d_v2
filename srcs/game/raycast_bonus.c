@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast_bns.c                                      :+:      :+:    :+:   */
+/*   raycast_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -40,17 +40,17 @@ void	perform_dda(t_data *data, t_raycast *rc)
 void	get_texture(t_data *data, t_raycast *rc)
 {
 	if (rc->side == 1 && rc->ray_dir[Y] > 0)
-		data->color = *(int *)(data->img_color_no + \
-		(data->tex_y * data->tex_w_no + data->tex_x));
-	else if (rc->side == 1 && rc->ray_dir[Y] < 0)
-		data->color = *(int *)(data->img_color_so + \
-		(data->tex_y * data->tex_w_so + data->tex_x));
-	else if (rc->side == 0 && rc->ray_dir[X] > 0)
 		data->color = *(int *)(data->img_color_ea + \
 		(data->tex_y * data->tex_w_ea + data->tex_x));
-	else if (rc->side == 0 && rc->ray_dir[X] < 0)
+	else if (rc->side == 1 && rc->ray_dir[Y] < 0)
 		data->color = *(int *)(data->img_color_we + \
 		(data->tex_y * data->tex_w_we + data->tex_x));
+	else if (rc->side == 0 && rc->ray_dir[X] > 0)
+		data->color = *(int *)(data->img_color_so + \
+		(data->tex_y * data->tex_w_so + data->tex_x));
+	else if (rc->side == 0 && rc->ray_dir[X] < 0)
+		data->color = *(int *)(data->img_color_no + \
+		(data->tex_y * data->tex_w_no + data->tex_x));
 	if (rc->side == 1)
 		data->color = (data->color >> 1) & 0x7F7F7F;
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+         #
+#    By: yelousse <yelousse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 20:16:05 by tbouzalm          #+#    #+#              #
-#    Updated: 2023/04/03 11:43:45 by tbouzalm         ###   ########.fr        #
+#    Updated: 2023/04/04 22:32:09 by yelousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS =  -Wextra -Wall -Werror
 
 HEADERS =  cub3D.h utils/utils.h parsing/parsing.h includes/initial.h
 
-BNS_SRCS = main_bns.c \
+BNS_SRCS = main_bonus.c \
 mouvement.c \
 srcs/parsing/check_color.c \
 srcs/parsing/initialisation.c \
@@ -60,10 +60,11 @@ utils/ft_strncmp.c \
 utils/ft_substr.c \
 utils/puterr.c \
 srcs/game/draw.c \
-srcs/game/raycast_bns.c \
-srcs/game/render_mini_map.c \
+srcs/game/raycast_bonus.c \
+srcs/game/render_mini_map_bonus.c \
 srcs/game/load_texture.c \
 srcs/game/compute.c \
+mouse_move_bonus.c \
 
 SRCS = main.c \
 mouvement.c \
@@ -107,7 +108,6 @@ utils/ft_substr.c \
 utils/puterr.c \
 srcs/game/draw.c \
 srcs/game/raycast.c \
-srcs/game/render_mini_map.c \
 srcs/game/load_texture.c \
 srcs/game/compute.c \
 
@@ -128,7 +128,7 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS)  -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o : %.c $(HEADERS)
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@ 
+	$(CC) $(CFLAGS) -lmlx  -c $< -o $@ 
 
 clean:
 	rm -f $(OBJS)
@@ -140,4 +140,4 @@ fclean: clean
 	
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all clean fclean re
