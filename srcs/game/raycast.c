@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 06:37:29 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/03 11:46:10 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/04 03:20:58 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ void	perform_dda(t_data *data, t_raycast *rc)
 void	get_texture(t_data *data, t_raycast *rc)
 {
 	if (rc->side == 1 && rc->ray_dir[Y] > 0)
-		data->color = *(int *)(data->img_color_no + \
-		(data->tex_y * data->tex_w_no + data->tex_x));
-	else if (rc->side == 1 && rc->ray_dir[Y] < 0)
-		data->color = *(int *)(data->img_color_so + \
-		(data->tex_y * data->tex_w_so + data->tex_x));
-	else if (rc->side == 0 && rc->ray_dir[X] > 0)
 		data->color = *(int *)(data->img_color_ea + \
 		(data->tex_y * data->tex_w_ea + data->tex_x));
-	else if (rc->side == 0 && rc->ray_dir[X] < 0)
+	else if (rc->side == 1 && rc->ray_dir[Y] < 0)
 		data->color = *(int *)(data->img_color_we + \
 		(data->tex_y * data->tex_w_we + data->tex_x));
+	else if (rc->side == 0 && rc->ray_dir[X] > 0)
+		data->color = *(int *)(data->img_color_so + \
+		(data->tex_y * data->tex_w_so + data->tex_x));
+	else if (rc->side == 0 && rc->ray_dir[X] < 0)
+		data->color = *(int *)(data->img_color_no + \
+		(data->tex_y * data->tex_w_no + data->tex_x));
 	if (rc->side == 1)
 		data->color = (data->color >> 1) & 0x7F7F7F;
 }
