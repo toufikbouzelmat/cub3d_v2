@@ -6,7 +6,7 @@
 /*   By: tbouzalm <tbouzalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:07:05 by tbouzalm          #+#    #+#             */
-/*   Updated: 2023/04/03 09:47:58 by tbouzalm         ###   ########.fr       */
+/*   Updated: 2023/04/04 05:45:36 by tbouzalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	check_after_pos_tex(t_game *map, int i, int j)
 	while (map->map[i][j] != '\0')
 	{
 		if ((map->map[i][j] >= '!' && map->map[i][j] <= '-') \
-		|| (map->map[i][j] >= '/' && map->map[i][j] <= '~'))
+		|| (map->map[i][j] >= '/' && map->map[i][j] <= '~') \
+		|| (map->map[i][j] == '\t'))
 			puterr("after tree caractere texture");
 		if (map->map[i][j] == '.')
 			break ;
